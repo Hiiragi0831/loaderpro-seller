@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   ssr: false,
+  nitro: {
+    devProxy: {
+      host: 'localhost',
+    },
+  },
   css: ['~/assets/css/main.css'],
   modules: ['@nuxt/icon', '@nuxt/eslint', '@primevue/nuxt-module', '@pinia/nuxt', '@nuxtjs/i18n'],
   vite: {
@@ -14,14 +19,30 @@ export default defineNuxtConfig({
   },
   primevue: {
     importTheme: { from: '@/themes/loaderpro.ts' },
+    options: {
+      pt: {
+        button: {
+          root: '',
+        },
+      },
+    }
   },
   i18n: {
     locales: [
-      { code: 'ru', name: 'Русский', file: 'ru.json' },
-      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'russia', name: 'Русский', file: 'ru.json' },
+      { code: 'united-states', name: 'English', file: 'en.json' },
+      { code: 'china', name: '漢語', file: 'cn.json' },
     ],
-    defaultLocale: 'ru',
+    defaultLocale: 'russia',
     strategy: 'no_prefix',
+  },
+  icon: {
+    customCollections: [
+      {
+        prefix: 'icons',
+        dir: "./assets/icons",
+      },
+    ],
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },

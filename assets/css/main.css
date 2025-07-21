@@ -63,7 +63,7 @@ h3 {
 
 .container {
     width: 100%;
-    max-width: calc(1400 * var(--width-multiplier));
+    max-width: calc(1580 * var(--width-multiplier));
 
     @media (max-width: 1024px) {
         padding: 0 calc(15 * var(--width-multiplier));

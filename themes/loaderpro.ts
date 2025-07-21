@@ -17,17 +17,9 @@ const Loaderpro = definePreset(Aura, {
       950: '#180E01',
     },
   },
-  pt: {
-    badge: {
-      root: 'w-10',
-    },
-  },
 });
 
 export default {
   preset: Loaderpro,
-  options: {
-    darkModeSelector: '.p-dark'
-  }
 };
 

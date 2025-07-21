@@ -2,10 +2,6 @@
 import {useField, useForm} from "vee-validate";
 import {loginSchema} from "@/schema/loginSchema";
 
-definePageMeta({
-  layout: 'empty',
-})
-
 const authStore = useAuthStore()
 const router = useRouter()
 const visible = ref(false)
@@ -30,7 +26,7 @@ const onSubmit = handleSubmit(async (values) => {
   <main class="relative grid pt-60">
     <section>
       <div class="container m-auto">
-        <p class="text-3xl font-bold mt-24 mb-40">{{ $t('welcome') }}</p>
+        <p class="text-3xl font-bold mt-24 mb-40">ва</p>
         <div class="grid grid-cols-[1fr_auto_1fr] gap-130 max-lg:grid-cols-1 max-lg:gap-30">
           <div class="flex flex-col gap-20">
             <p class="text-2xl text-primary-500 font-bold">Уже зарегистрированы?</p>
@@ -87,11 +83,9 @@ const onSubmit = handleSubmit(async (values) => {
                 @click="visible = true"
             />
             <Dialog v-model:visible="visible" modal header="Презентация платформы" class="w-1080">
-              <video
-                  poster="@/assets/images/main/platform-preview.jpg"
-                  data-dm-button-id="download-master-button-426080486"
-              >
-                <source src="@/assets/images/main/platform-presentation.mp4" type="video/mp4" />
+              <video controls poster="@/assets/images/main/platform-preview.jpg">
+                <source src="@/assets/images/main/platform-presentation.mp4" type="video/mp4" >
+                Ваш браузер не поддерживает встроенные видео :(
               </video>
             </Dialog>
           </div>

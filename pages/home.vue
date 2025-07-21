@@ -17,7 +17,7 @@ const onOut = async () => {
   <main class="relative grid">
     <section>
       <div class="container m-auto">
-        <p>Главная</p>
+        <p>{{ $t('welcome') }}</p>
         <Button label="Проверка токена" class="w-full" @click="onCheck" />
         <Button label="Выйти" class="w-full" @click="onOut" />
       </div>
