@@ -35,6 +35,7 @@ export const useAuthStore = defineStore('auth', {
           await useBrandStore().getBrands()
           this.isAuthenticated = true
           this.message = { type: 'success', title: 'Вы успешно вошли в аккаунт', text: 'Здравствуйте, ' + this.user.name + '!' }
+          await useRouter().push({name: 'home'})
         } else if (res.status === 401) {
           this.message = { type: 'error', title: 'Ошибка', text: 'Неверный логин или пароль' }
         } else if (data.message) {

@@ -1,113 +1,120 @@
 <script setup lang="ts">
 import {useField, useForm} from "vee-validate";
-import {loginSchema} from "@/schema/loginSchema";
-
-const authStore = useAuthStore()
-const router = useRouter()
-const visible = ref(false)
+import {salesmanSchema} from "~/schema/salesmanSchema";
 
 const { handleSubmit, errors, handleReset } = useForm({
-  validationSchema: loginSchema,
+  validationSchema: salesmanSchema
 })
 
-const { value: email } = useField<string>('email')
-const { value: password } = useField<string>('password')
+const { value: name } = useField<string>('name')
+const { value: tel } = useField<string>('tel')
+
 
 const onSubmit = handleSubmit(async (values) => {
-  await authStore.signUp(values.email, values.password)
-  if (authStore.isAuthenticated) {
-    await router.push('/home')
-  }
+  console.log(values)
   handleReset()
 })
 </script>
 
 <template>
   <main class="relative grid pt-60">
-    <section>
-      <div class="container m-auto">
-        <p class="text-3xl font-bold mt-24 mb-40">ва</p>
-        <div class="grid grid-cols-[1fr_auto_1fr] gap-130 max-lg:grid-cols-1 max-lg:gap-30">
-          <div class="flex flex-col gap-20">
-            <p class="text-2xl text-primary-500 font-bold">Уже зарегистрированы?</p>
-            <p class="text-2xl font-bold">Выполнить вход</p>
-            <form class="flex flex-col gap-20" @submit="onSubmit">
-              <FloatLabel variant="on">
-                <InputText id="email" v-model="email" name="email" :invalid="!!errors?.email" />
-                <Message
-                    v-if="errors?.email"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                    class="absolute"
-                >
-                  {{ errors.email }}
-                </Message>
-                <label for="email">Email</label>
-              </FloatLabel>
-              <FloatLabel variant="on">
-                <Password
-                    id="password"
-                    v-model="password"
-                    name="password"
-                    fluid
-                    :invalid="!!errors?.password"
-                    :feedback="false"
-                />
-                <Message
-                    v-if="errors?.password"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                    class="absolute"
-                >
-                  {{ errors.password }}
-                </Message>
-                <label for="email">Пароль</label>
-              </FloatLabel>
-              <div class="flex gap-40">
-                <Button
-                    label="Авторизоваться"
-                    type="submit"
-                    class="w-auto"
-                    :loading="authStore.loader ?? undefined"
-                />
-                <Button label="Забыли пароль?" variant="text" />
+    <section class="relative">
+      <Image src="/images/index/hero.jpg" class="absolute w-full h-full px-20" image-class="w-full h-full object-cover rounded-4xl"/>
+      <div class="container m-auto relative py-60">
+        <div class="grid grid-cols-2 gap-300">
+          <div class="flex flex-col text-white">
+            <p class="text-6xl font-bold mb-7"><span class="text-white">LOADERPRO</span> <span class="text-primary-500">SELLER</span></p>
+            <p class="text-xl">Работая на рынке складской техники с 2017 года мы осуществляем продажу запчастей и комплектующих для бесперебойной и эффективной работы бизнеса в России.</p>
+            <div class="mt-50 flex flex-col gap-24">
+              <div class="flex items-center gap-24">
+                <p class="w-170">С кем работаем</p>
+                <div class="flex gap-24 p-10 bg-white/15 rounded-xl">
+                  <div class="flex gap-12 items-center">
+                    <Icon name="icons:suitcase" class="text-2xl text-primary-500" />
+                    <p>Юр. лица</p>
+                  </div>
+                  <div class="flex gap-12 items-center">
+                    <Icon name="icons:university" class="text-2xl text-primary-500" />
+                    <p>ИП</p>
+                  </div>
+                </div>
               </div>
+              <div class="flex items-center gap-24">
+                <p class="w-170">Предоставляем</p>
+                <div class="flex gap-24 p-10 bg-white/15 rounded-xl">
+                  <div class="flex gap-12 items-center">
+                    <Icon name="icons:users" class="text-2xl text-primary-500" />
+                    <p>Заказы / Поддержку / Аналитику </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-24">
+                <p class="w-170">Форматы работы</p>
+                <div class="flex gap-24 p-10 bg-white/15 rounded-xl">
+                  <div class="flex gap-12 items-center">
+                    <Icon name="icons:book-open" class="text-2xl text-primary-500" />
+                    <p>FBS / FBO</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-40 rounded-2xl bg-white">
+            <p class="text-2xl font-bold">Стать продавцом</p>
+            <form class="flex flex-col gap-18 mt-24" @submit="onSubmit">
+              <FloatLabel variant="on" class="h-50">
+                <InputText id="name" v-model="name" name="name" :invalid="!!errors?.name" size="large" class="h-50 !bg-gray-100"/>
+                <Message
+                    v-if="errors?.name"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    class="absolute"
+                >
+                  {{ errors.name }}
+                </Message>
+                <label for="name">Имя</label>
+              </FloatLabel>
+              <FloatLabel variant="on" class="h-50">
+                <InputText id="tel" v-model="tel" name="tel" :invalid="!!errors?.tel" size="large" class="h-50 !bg-gray-100"/>
+                <Message
+                    v-if="errors?.tel"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    class="absolute"
+                >
+                  {{ errors.tel }}
+                </Message>
+                <label for="tel">Телефон</label>
+              </FloatLabel>
+              <Button label="Стать продавцом" class="w-full h-50" type="submit" variant="outlined"/>
+              <p class="text-sm text-gray-500">Нажимая кнопку «Стать продавцом», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года No152-ФЗ «О персональных данных», на условиях и для целей, определенных в Согласии на обработку персональных данных</p>
             </form>
-            <Button
-                label="Презентация платформы"
-                variant="outlined"
-                fluid
-                class="mt-auto"
-                @click="visible = true"
-            />
-            <Dialog v-model:visible="visible" modal header="Презентация платформы" class="w-1080">
-              <video controls poster="@/assets/images/main/platform-preview.jpg">
-                <source src="@/assets/images/main/platform-presentation.mp4" type="video/mp4" >
-                Ваш браузер не поддерживает встроенные видео :(
-              </video>
-            </Dialog>
           </div>
-          <div class="w-full">
-            <Divider layout="vertical" class="!flex max-lg:!hidden"><b>ИЛИ</b></Divider>
-            <Divider layout="horizontal" class="!hidden max-lg:!flex" align="center"
-            ><b>ИЛИ</b></Divider
-            >
-          </div>
-          <div class="flex flex-col gap-20">
-            <p class="text-2xl text-primary-500 font-bold">Новый пользователь?</p>
-            <p class="text-2xl font-bold">Зарегистрируйтесь здесь</p>
-            <ul class="list-image">
-              <li>Ничего лишнего в новом облике с привычным функционалом.</li>
-              <li>Запросы на подбор по каталогу или номеру детали.</li>
-              <li>Возможность добавить технику в гараж для простоты запроса.</li>
-              <li>
-                1616 брендов в портфеле, 25 000 тысяч товаров в наличии на складах в России.
-              </li>
-              <li>Оригиналы и аналоги, 3 надежных канала поставок</li>
-            </ul>
-            <Button label="Зарегистрироваться" />
+        </div>
+      </div>
+    </section>
+    <section class="relative my-40 mx-20">
+      <div class="absolute w-full h-full bg-primary-500 rounded-4xl" />
+      <div class="container m-auto relative py-50">
+        <div class="flex items-center gap-80">
+          <p class="text-4xl font-bold text-white w-520">Почему вам стоит продавать на LOADERPRO</p>
+          <div class="flex gap-43">
+            <div class="flex flex-col gap-16 text-white">
+              <p class="text-6xl font-semibold">12 000</p>
+              <p class="text-xl font-semibold">Клиентов доверились LOADERPRO</p>
+            </div>
+            <Divider layout="vertical" type="dashed" class="!m-0" style="--p-divider-border-color: rgb(255, 255, 255)"/>
+            <div class="flex flex-col gap-16 text-white">
+              <p class="text-6xl font-semibold">54 000</p>
+              <p class="text-xl font-semibold">Заказов разместили наши клиенты</p>
+            </div>
+            <Divider layout="vertical" type="dashed" class="!m-0" style="--p-divider-border-color: rgb(255, 255, 255)"/>
+            <div class="flex flex-col gap-16 text-white w-390 flex-shrink-0">
+              <p class="text-6xl font-semibold">1 000 000 000</p>
+              <p class="text-xl font-semibold">Рублей получили наши продавцы</p>
+            </div>
           </div>
         </div>
       </div>
