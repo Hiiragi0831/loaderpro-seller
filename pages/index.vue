@@ -17,7 +17,7 @@ const onSubmit = handleSubmit(async (values) => {
 </script>
 
 <template>
-  <main class="relative grid pt-60">
+  <main class="relative grid">
     <section class="relative">
       <Image src="/images/index/hero.jpg" class="absolute w-full h-full px-20" image-class="w-full h-full object-cover rounded-4xl"/>
       <div class="container m-auto relative py-60">
