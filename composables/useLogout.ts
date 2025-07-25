@@ -1,9 +1,9 @@
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from "@/stores/auth";
 
 export function useLogout() {
-  const auth = useAuthStore()
+  const auth = useAuthStore();
   return async () => {
-    auth.logout()
-    navigateTo({ name: 'index' })
-  }
+    auth.logout();
+    navigateTo({ name: "index" });
+  };
 }
