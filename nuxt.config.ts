@@ -54,9 +54,6 @@ export default defineNuxtConfig({
     layoutTransition: { name: "layout", mode: "out-in" },
     head: {
       title: "LOADERPRO",
-      htmlAttrs: {
-        lang: "ru",
-      },
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { charset: "utf-8" },

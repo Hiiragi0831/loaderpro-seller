@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import AppHeader from "~/components/AppHeader.vue";
 import AppFooter from "~/components/AppFooter.vue";
-import NavMenu from "~/components/NavMenu.vue";
 </script>
 
 <template>
   <div class="wrapper">
     <AppHeader />
-    <NavMenu />
     <div class="my-30">
       <slot />
     </div>

@@ -2,6 +2,10 @@
 import { useField, useForm } from "vee-validate";
 import { salesmanSchema } from "~/schema/salesmanSchema";
 
+definePageMeta({
+  layout: "empty",
+});
+
 const { handleSubmit, errors, handleReset } = useForm({
   validationSchema: salesmanSchema,
 });

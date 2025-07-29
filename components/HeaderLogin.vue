@@ -20,7 +20,7 @@ const onSubmit = handleSubmit(async (values) => {
 </script>
 
 <template>
-  <div v-if="!authStore.isAuthenticated">
+  <div>
     <Button
       label="Войти"
       class="w-140 h-50 !rounded-2xl"

@@ -4,6 +4,7 @@ const route = useRoute();
 const menuItems = [
   { name: "Главная", path: "/home" },
   { name: "Товары", path: "/products" },
+  { name: "Добавить товары", path: "/goods" },
 ];
 </script>
 

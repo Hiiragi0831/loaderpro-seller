@@ -1,13 +1,9 @@
-<script setup lang="ts">
-import NavMenu from "~/components/NavMenu.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main class="relative grid">
-    <NavMenu />
     <section>
       <div class="container m-auto">
-        <p>{{ $t("welcome") }}</p>
         <div class="grid grid-cols-4 gap-15">
           <InfoBlock
             value="1 428 462 ₽"

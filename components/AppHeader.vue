@@ -2,6 +2,7 @@
 type Country = { code: "russia" | "united-states" | "china"; name?: string };
 const { locale, locales, setLocale } = useI18n();
 const selectedCountry = ref<Country>({ code: locale.value });
+const authStore = useAuthStore();
 
 locales.value.forEach((l) => {
   if (l.code === locale.value) {
@@ -58,8 +59,8 @@ watch(selectedCountry, (value) => {
         </FloatLabel>
       </div>
       <div class="flex gap-16">
-        <HeaderLogin />
-        <HeaderUser />
+        <HeaderLogin v-if="!authStore.isAuthenticated" />
+        <HeaderUser v-if="authStore.isAuthenticated" />
       </div>
     </div>
   </header>

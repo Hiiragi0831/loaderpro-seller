@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/stores/auth'
-import { watch } from 'vue'
+import { useAuthStore } from "@/stores/auth";
+import { watch } from "vue";
 
-const authStore = useAuthStore()
-const toast = useToast()
+const authStore = useAuthStore();
+const toast = useToast();
 
 watch(
-    () => authStore.message,
-    (message) => {
+  () => authStore.message,
+  (message) => {
+    if (message) {
       if (message) {
-        if (message) {
-          toast.add({
-            severity: message.type,
-            summary: message.title,
-            detail: message.text,
-            life: 3000,
-          })
-          authStore.message = null
-        }
+        toast.add({
+          severity: message.type,
+          summary: message.title,
+          detail: message.text,
+          life: 3000,
+        });
+        authStore.message = null;
       }
-    },
-)
+    }
+  },
+);
 </script>
 <template>
   <NuxtLayout class="wrapper">

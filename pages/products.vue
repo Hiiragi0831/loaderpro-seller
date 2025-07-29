@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
 import { useLogout } from "@/composables/useLogout";
-import NavMenu from "~/components/NavMenu.vue";
 
 const authStore = useAuthStore();
 const logOut = useLogout();
@@ -16,7 +15,6 @@ const onOut = async () => {
 
 <template>
   <main class="relative grid">
-    <NavMenu />
     <section>
       <div class="container m-auto">
         <p>{{ $t("welcome") }}</p>

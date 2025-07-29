@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const authStore = useAuthStore();
+</script>
 
 <template>
   <div class="flex">
