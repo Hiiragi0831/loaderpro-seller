@@ -107,6 +107,21 @@ const upLoader = async (event: FileUploadUploaderEvent) => {
               </Button>
             </div>
           </div>
+          <h3 class="mt-40 mb-20">Другие способы добавить товар</h3>
+          <div class="grid grid-cols-2 gap-40">
+            <GoodsItem
+              title="Вручную"
+              description="Подойдет, если товаров немного. Можно создавать по одному товару, указывая цену и остаток вручную."
+              image="/images/goods/1.png"
+              image-class="-top-28 -right-102 w-408 h-258"
+            />
+            <GoodsItem
+              title="Через API ключ"
+              description="Управляйте товарами автоматически — подключите свою систему к личному кабинету LOADERPRO SELLER"
+              image="/images/goods/3.png"
+              image-class="-top-10 -right-90 w-377 h-238"
+            />
+          </div>
         </div>
         <div class="col-span-2">
           <div class="p-30 rounded-2xl bg-gray-100">
