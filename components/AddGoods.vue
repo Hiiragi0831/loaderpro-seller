@@ -82,7 +82,6 @@ const upLoader = async (event: FileUploadUploaderEvent) => {
                     </Button>
                   </template>
                   <template #content="{ files, uploadedFiles, messages }">
-
                     <div class="flex flex-col gap-8">
                       <Message
                         v-for="message of messages"
