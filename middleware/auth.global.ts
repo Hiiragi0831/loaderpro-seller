@@ -4,11 +4,7 @@ const publicRoutes = ["index", "privacy-policy"]; // Добавьте сюда �
 
 export default defineNuxtRouteMiddleware(async (to) => {
   const authStore = useAuthStore();
-
-  // Проверяем токен только если пользователь не аутентифицирован
-  if (!authStore.isAuthenticated) {
-    await authStore.checkToken();
-  }
+  await authStore.checkToken();
 
   if (authStore.isAuthenticated && to.name === "index") {
     return navigateTo({ name: "home" });

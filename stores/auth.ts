@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { useBrandStore } from "@/stores/brand";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
