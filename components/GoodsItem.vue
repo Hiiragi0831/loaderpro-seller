@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     default: "Заголовок",
@@ -25,7 +25,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="rounded-2xl p-30 min-h-230 relative bg-gray-100 overflow-hidden transition-colors hover:bg-primary-500 hover:text-white"
+    class="rounded-2xl p-30 min-h-230 relative bg-gray-100 overflow-hidden transition-colors hover:bg-primary-500 hover:text-white cursor-pointer"
   >
     <div class="w-10/12 flex flex-col gap-12">
       <p class="text-2xl font-bold">{{ title }}</p>
