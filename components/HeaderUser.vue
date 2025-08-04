@@ -1,10 +1,16 @@
 <script setup lang="ts">
-const authStore = useAuthStore();
+import { useLogout } from "~/composables/useLogout";
+
+const logOut = useLogout();
+
+const onOut = async () => {
+  await logOut();
+};
 </script>
 
 <template>
   <div class="flex">
-    <Button class="h-50 w-50 !rounded-2xl" severity="secondary">
+    <Button class="h-50 w-50 !rounded-2xl" severity="secondary" @click="onOut">
       <Icon name="icons:account" class="text-xl" />
     </Button>
   </div>

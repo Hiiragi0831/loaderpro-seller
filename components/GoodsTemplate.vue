@@ -96,11 +96,6 @@ const upLoader = async (event: FileUploadUploaderEvent) => {
           </FileUpload>
         </div>
       </div>
-      <div class="col">
-        <Button severity="contrast" size="large" class="!rounded-2xl">
-          Опубликовать
-        </Button>
-      </div>
     </div>
     <GoodsAnother />
   </div>

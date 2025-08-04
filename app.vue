@@ -9,15 +9,13 @@ watch(
   () => authStore.message,
   (message) => {
     if (message) {
-      if (message) {
-        toast.add({
-          severity: message.type,
-          summary: message.title,
-          detail: message.text,
-          life: 3000,
-        });
-        authStore.message = null;
-      }
+      toast.add({
+        severity: message.type,
+        summary: message.title,
+        detail: message.text,
+        life: 3000,
+      });
+      authStore.message = null;
     }
   },
 );
