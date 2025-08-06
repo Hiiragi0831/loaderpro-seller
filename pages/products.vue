@@ -259,7 +259,6 @@ onMounted(loadData);
           <Column
             field="product_name"
             header="Название товара"
-            :sortable="true"
             class="w-400"
           >
             <template #body="{ data }">
@@ -271,7 +270,6 @@ onMounted(loadData);
           <Column
             field="article"
             header="Артикул"
-            :sortable="true"
             class="w-150"
           >
             <template #body="{ data }">
@@ -283,7 +281,6 @@ onMounted(loadData);
           <Column
             field="brand"
             header="Бренд"
-            :sortable="true"
             :show-filter-match-modes="false"
             :show-filter-operator="false"
             :show-add-button="false"
@@ -304,7 +301,6 @@ onMounted(loadData);
           <Column
             field="quality"
             header="Качество"
-            :sortable="true"
             :show-filter-match-modes="false"
             :show-filter-operator="false"
             :show-add-button="false"
@@ -348,7 +344,6 @@ onMounted(loadData);
           <Column
             field="status"
             header="Статус"
-            :sortable="true"
             :show-filter-match-modes="false"
             :show-filter-operator="false"
             :show-add-button="false"
